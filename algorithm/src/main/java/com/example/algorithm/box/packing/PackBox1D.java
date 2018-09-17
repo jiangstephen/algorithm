@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * than the sqrt root, then use the A.width to be the width of the final box, otherwise use the sqrt
  * 3. Go to the next box,  try to pack the box with the previous rows otherwise create a new row for it.
  */
-public class PackBoxWithDynamicWidth {
+public class PackBox1D {
 	public Box find(List<Box> boxList){
 		int boxWidth = 0, boxHeight = 0;
 		List<BoxRow> boxRows = new ArrayList<>();

@@ -68,9 +68,7 @@ public class Box implements Comparable<Box>{
 		for(BoxGrid[] boxGrids: boxGridArray){
 			System.out.println();
 			for(BoxGrid boxGrid: boxGrids){
-				if(boxGrid != null){
-					System.out.print(boxGrid.getCh());
-				}
+				System.out.print(boxGrid!=null?boxGrid.getCh():' ');
 			}
 		}
 		System.out.println();

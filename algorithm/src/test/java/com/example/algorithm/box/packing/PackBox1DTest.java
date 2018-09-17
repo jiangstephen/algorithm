@@ -6,9 +6,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-public class PackBoxWithDynamicWidthTest {
+public class PackBox1DTest {
 	
-	private PackBoxWithDynamicWidth testee = new PackBoxWithDynamicWidth();
+	private PackBox1D testee = new PackBox1D();
 	
 	private List<Box> listBox = Arrays.asList(
 			new Box(10, 1, 'a'), new Box(1,1, 'b'),
