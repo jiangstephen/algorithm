@@ -45,7 +45,15 @@ public class Box implements Comparable<Box>{
 	
 	public int compareTo(Box box) {
 		Validate.notNull(box, "box should not be null");
-		return -(new Integer(this.width).compareTo(box.width));
+		int compareWidth = -(new Integer(this.width).compareTo(box.width));
+		if(compareWidth != 0){
+			return compareWidth;
+		}
+		int compareHeight = -(new Integer(this.height).compareTo(box.height));
+		if(compareHeight == 0){
+			return compareWidth;
+		}
+		return new Character(this.getCh()).compareTo(box.getCh());
 	}
 	
 	@Override

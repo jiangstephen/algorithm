@@ -62,12 +62,18 @@ public class Node {
 	
 	public void print(){
 		System.out.println(new ToStringBuilder(this).append("width=" + width).append("height=" + height));
+		double area = width * height;
+		double occupiedArea = 0;
 		for(BoxGrid[] boxGrids: boxGridArray){
 			System.out.println();
 			for(BoxGrid boxGrid: boxGrids){
+				
+				if(boxGrid!=null){
+					occupiedArea++;
+				}
 				System.out.print(boxGrid!=null?boxGrid.getCh():' ');
 			}
 		}
-		System.out.println();
+		System.out.println("\nThe occupied percentage is "+(occupiedArea/area)+" \n");
 	}
 }

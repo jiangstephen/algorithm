@@ -10,7 +10,8 @@ import com.example.algorithm.box.packing.Box;
 
 public class PackBox2DTest {
 	
-	private PackBox2D testee = new PackBox2D();
+	private PackBox2D testee = new PackBox2D(false);
+	private PackBox2D testee2 = new PackBox2D(true);
 	
 	private List<Box> listBox = Arrays.asList(
 			new Box(10, 3, 'a'), new Box(5, 4 , 'b'), new Box(5, 4 , 'c'),
@@ -39,5 +40,7 @@ public class PackBox2DTest {
 		}
 		testee.find(listBox);
 		testee.printRoot();
+		testee2.find(listBox);
+		testee2.printRoot();
 	}
 }

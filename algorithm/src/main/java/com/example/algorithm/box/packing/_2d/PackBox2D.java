@@ -1,8 +1,10 @@
 package com.example.algorithm.box.packing._2d;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.apache.commons.lang3.Validate;
 
@@ -18,9 +20,23 @@ import com.example.algorithm.box.packing.Box;
 public class PackBox2D {
 	
 	private Node root;
+	private boolean rotate;
+	
+	public PackBox2D(boolean rotate){
+		this.rotate = rotate;
+	}
 	
 	List<Box> sortBox(List<Box> boxList){
-		return boxList.stream().sorted((o1,o2) -> o1.compareTo(o2)).collect(Collectors.toList());
+		Set<Box> boxes = new TreeSet<Box>();
+		for(Box box : boxList){
+			if(rotate && box.getHeight() > box.getWidth()){
+				boxes.add(new Box(box.getHeight(), box.getWidth(), box.getCh()));
+			} else {
+				boxes.add(box);
+			}
+		}
+		System.out.println("The size of the box is " + boxes.size() +" boxes " + boxes);
+		return new ArrayList<>(boxes);
 	}
 	
 	public void find(List<Box> boxList){
@@ -46,7 +62,7 @@ public class PackBox2D {
 			}
 			return this.findNode(root.getDown(), box);
 		} else if (root.getWidth() >= box.getWidth() && root.getHeight() >= box.getHeight()){
-			System.out.println("The node is not used, return the node " + root +" for box " + box);
+			//System.out.println("The node is not used, return the node " + root +" for box " + box);
 			return Optional.of(root);
 		} else {
 			return Optional.empty();
@@ -59,7 +75,7 @@ public class PackBox2D {
 		this.root.fillBox(node, box);
 		node.setDown(new Node(node.getStartX(), node.getStartY() + box.getHeight(), node.getWidth(), node.getHeight() - box.getHeight()));
 		node.setRight(new Node(node.getStartX() + box.getWidth(), node.getStartY(), node.getWidth() - box.getWidth(), box.getHeight()));
-		System.out.println("Split the node " + node+" for the box " + box);
+		//System.out.println("Split the node " + node+" for the box " + box);
 	}
 	
 	private void growNodeAndFit(Box box){
