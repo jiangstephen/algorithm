@@ -1,7 +1,9 @@
-package com.example.algorithm.array;
+package com.example.algorithm.sort;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.example.algorithm.sort.Merge2SortedArray;
 
 public class Merge2SortedArrayTest {
 	

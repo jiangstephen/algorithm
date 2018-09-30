@@ -1,4 +1,4 @@
-package com.example.algorithm.array;
+package com.example.algorithm.sort;
 
 import org.apache.commons.lang3.Validate;
 
