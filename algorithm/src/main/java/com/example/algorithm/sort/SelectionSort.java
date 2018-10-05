@@ -4,6 +4,7 @@ import org.apache.commons.lang3.Validate;
 
 public class SelectionSort<T extends Comparable<T>> implements Sort<T>{
 
+	//detect the smallest element from the unsorted array and put in the beginning of the array
 	@Override
 	public T[] sort(T[] array) {
 		Validate.notEmpty(array, "The array should not be empty");
