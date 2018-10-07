@@ -16,9 +16,7 @@ public class SelectionSort<T extends Comparable<T>> implements Sort<T>{
 					index = j;
 				}
 			}
-			T smallerOne = array[index];
-			array[index] = array[i];
-			array[i] = smallerOne;
+			swap(array, index, i);
 		}
 		return array;
 	}

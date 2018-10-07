@@ -10,9 +10,7 @@ public class InsertionSort<T extends Comparable<T>> implements Sort<T>{
 		for(int i = 1 ; i < array.length ; i++){
 			for(int j = i ; j > 0 ; j--){
 				if(array[j-1].compareTo(array[j]) > 0){
-					T smallerOne = array[j];
-					array[j] = array[j - 1];
-					array[j -1] = smallerOne;
+					swap(array, j, j-1);
 				}
 			}
 		}
